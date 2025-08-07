@@ -54,12 +54,17 @@
                     <a href="#contact" class="text-white hover:text-amber-200 transition-colors">Contact</a>
                 </div>
                 <div class="md:hidden">
-                    <!-- Mobile Menu Button -->
-                    <button class="text-white focus:outline-none">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
                 </div>
             </div>
+        </div>
+        <div class="hidden md:hidden" id="mobile-menu">
+            <a href="#" class="block py-2 px-4 text-sm text-white hover:bg-amber-700">Home</a>
+            <a href="#details" class="block py-2 px-4 text-sm text-white hover:bg-amber-700">Details</a>
+            <a href="#agenda" class="block py-2 px-4 text-sm text-white hover:bg-amber-700">Agenda</a>
+            <a href="#contact" class="block py-2 px-4 text-sm text-white hover:bg-amber-700">Contact</a>
         </div>
     </nav>
 
@@ -361,6 +366,13 @@
 
         document.querySelectorAll('.modal-close, .modal-backdrop').forEach(el => {
             el.addEventListener('click', closeModals);
+        });
+        // --- Mobile Menu Logic ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
         // Close modal with Escape key
